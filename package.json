@@ -1,0 +1,61 @@
+{
+  "name": "express-prisma-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "dev": "nodemon src/index.ts",
+    "build": "npx tsc",
+    "start": "node dist/index.js",
+    "test": "jest",
+    "postinstall": "prisma generate --schema node_modules/express-prisma-types-template/prisma/schema.prisma",
+    "prepare": "husky install"
+  },
+  "keywords": [],
+  "author": "Reynanda Putra Pratama <reynandapp1997@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-typescript": "^7.21.4",
+    "@faker-js/faker": "^7.6.0",
+    "@jest/globals": "^29.5.0",
+    "@types/body-parser": "^1.19.2",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/morgan": "^1.9.4",
+    "@types/node": "^18.15.12",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "babel-jest": "^29.5.0",
+    "eslint": "^8.38.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "husky": "^8.0.0",
+    "jest": "^29.5.0",
+    "lint-staged": "^13.2.1",
+    "prisma": "^4.13.0",
+    "supertest": "^6.3.3",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "@prisma/client": "4.13.0",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "http-status": "^1.6.2",
+    "morgan": "^1.10.0",
+    "express-prisma-types-template": "github:reynandaptr/express-prisma-types-template#v0.0.0",
+    "zod": "^3.21.4"
+  },
+  "type": "commonjs",
+  "lint-staged": {
+    "*.{ts}": [
+      "eslint ."
+    ]
+  }
+}
