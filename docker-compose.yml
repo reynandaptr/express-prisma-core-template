@@ -37,18 +37,3 @@ services:
       - WAIT_SLEEP_INTERVAL=5
     volumes:
       - ./coverage:/usr/src/app/coverage
-  app:
-    image: express-prisma-template:latest
-    build: 
-      context: .
-      dockerfile: Dockerfile
-      args:
-        GIT_ACCESS_KEY: ${GIT_ACCESS_KEY}
-    environment:
-      - DATABASE_URL=postgresql://postgres:password@postgresql:5432/express_prisma_template?schema=public
-      - PORT=3000
-
-      - WAIT_HOSTS=ci:80
-      - WAIT_SLEEP_INTERVAL=5
-    ports:
-      - 3000:3000
