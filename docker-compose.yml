@@ -6,6 +6,15 @@ services:
       POSTGRES_PASSWORD: password
     ports:
       - 5432:5432
+  # postgresql:
+  #   image: postgres:13.2
+  #   environment:
+  #     POSTGRES_PASSWORD: password
+  #     PGDATA: /var/lib/postgresql/data/pgdata
+  #   ports:
+  #     - 5432:5432
+  #   volumes:
+  #     - /Users/reynandaptr/Development/docker/postgresql:/var/lib/postgresql/data
   migration:
     image: ghcr.io/reynandaptr/express-prisma-migration-template:latest
     environment:
