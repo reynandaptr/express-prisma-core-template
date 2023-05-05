@@ -19,7 +19,7 @@ services:
     image: ghcr.io/reynandaptr/express-prisma-migration:latest
     pull_policy: always
     environment:
-      - DATABASE_URL=postgresql://postgres:password@postgresql:5432/express_prisma_template?schema=public
+      - DATABASE_URL=postgresql://postgres:password@postgresql:5432/express_prisma_test?schema=public
 
       - WAIT_HOSTS=postgresql:5432
       - WAIT_SLEEP_INTERVAL=5
