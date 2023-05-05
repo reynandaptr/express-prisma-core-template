@@ -1,16 +1,15 @@
 FROM reynandaptr/node-builder:v0.0.1
 
-ARG GIT_ACCESS_KEY
+ARG PAT
 
 COPY . .
 
-RUN echo $GIT_ACCESS_KEY | base64 -d > ~/.ssh/id_rsa && \
-  chmod 400 ~/.ssh/id_rsa
-RUN eval $(ssh-agent -s) && \
-  ssh-add ~/.ssh/id_rsa
+RUN echo "//npm.pkg.github.com/:_authToken=$PAT" >> .npmrc
 
 RUN pnpm install
 RUN pnpm build
+
+RUN rm -rf .npmrc
 
 EXPOSE 3000
 

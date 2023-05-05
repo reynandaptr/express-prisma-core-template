@@ -27,21 +27,16 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 18.12.0
+      - run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
       - run: npm install -g pnpm
-      - uses: webfactory/ssh-agent@v0.7.0
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - run: pnpm install
+      - run: rm -rf .npmrc
       - run: npx prisma migrate dev --schema node_modules/express-prisma-types-template/prisma/schema.prisma --name init
         env:
           DATABASE_URL: postgresql://postgres:password@localhost:5432/express_prisma_template?schema=public
       - run: pnpm test
         env:
           DATABASE_URL: postgresql://postgres:password@localhost:5432/express_prisma_template?schema=public
-      - uses: actions/upload-artifact@v2
-        with:
-          name: coverage
-          path: coverage
       - run: |
           cd ./coverage/lcov-report
           npm install -g vercel
