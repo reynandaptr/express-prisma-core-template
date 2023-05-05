@@ -1,4 +1,4 @@
-import {prisma} from 'express-prisma-types-template/dist';
+import {prisma} from '@reynandaptr/express-prisma-types/dist';
 
 import app from './app';
 import {getEnvvarValue} from './utils/envvar';

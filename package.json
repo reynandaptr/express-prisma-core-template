@@ -1,5 +1,5 @@
 {
-  "name": "express-prisma-template",
+  "name": "@reynandaptr/express-prisma",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -9,7 +9,7 @@
     "build": "npx tsc",
     "start": "node dist/index.js",
     "test": "jest",
-    "postinstall": "prisma generate --schema node_modules/express-prisma-types-template/prisma/schema.prisma",
+    "postinstall": "prisma generate --schema node_modules/@reynandaptr/express-prisma-types/prisma/schema.prisma",
     "prepare": "husky install"
   },
   "keywords": [],
@@ -44,13 +44,13 @@
   },
   "dependencies": {
     "@prisma/client": "4.13.0",
+    "@reynandaptr/noqu-types": "0.0.1",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "http-status": "^1.6.2",
     "morgan": "^1.10.0",
-    "express-prisma-types-template": "github:reynandaptr/express-prisma-types-template#v0.0.0",
     "zod": "^3.21.4"
   },
   "type": "commonjs",

@@ -16,7 +16,7 @@ services:
   #   volumes:
   #     - /Users/reynandaptr/Development/docker/postgresql:/var/lib/postgresql/data
   migration:
-    image: ghcr.io/reynandaptr/express-prisma-migration-template:latest
+    image: ghcr.io/reynandaptr/express-prisma-migration:latest
     pull_policy: always
     environment:
       - DATABASE_URL=postgresql://postgres:password@postgresql:5432/express_prisma_template?schema=public

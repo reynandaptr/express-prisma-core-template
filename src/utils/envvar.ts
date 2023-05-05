@@ -1,4 +1,4 @@
-type EnvvarType = 'PORT' | 'TZ';
+type EnvvarType = 'PORT' | 'TZ' | 'ENVIRONMENT';
 
 type EnvvarResult = {
   value?: string;
