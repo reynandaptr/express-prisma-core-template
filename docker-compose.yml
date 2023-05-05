@@ -23,17 +23,3 @@ services:
 
       - WAIT_HOSTS=postgresql:5432
       - WAIT_SLEEP_INTERVAL=5
-  ci:
-    image: express-prisma-template-ci:latest
-    build: 
-      context: .
-      dockerfile: Dockerfile.ci
-      args:
-        GIT_ACCESS_KEY: ${GIT_ACCESS_KEY}
-    environment:
-      - DATABASE_URL=postgresql://postgres:password@postgresql:5432/express_prisma_template?schema=public
-
-      - WAIT_HOSTS=migration:80
-      - WAIT_SLEEP_INTERVAL=5
-    volumes:
-      - ./coverage:/usr/src/app/coverage
