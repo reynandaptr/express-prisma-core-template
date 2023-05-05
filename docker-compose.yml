@@ -7,12 +7,7 @@ services:
     ports:
       - 5432:5432
   migration:
-    image: express-prisma-template-migration:latest
-    build: 
-      context: .
-      dockerfile: Dockerfile.migration
-      args:
-        GIT_ACCESS_KEY: ${GIT_ACCESS_KEY}
+    image: ghcr.io/reynandaptr/express-prisma-migration-template:latest
     environment:
       - DATABASE_URL=postgresql://postgres:password@postgresql:5432/express_prisma_template?schema=public
 
