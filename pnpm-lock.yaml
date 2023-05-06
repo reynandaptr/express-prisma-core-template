@@ -5,8 +5,8 @@ dependencies:
     specifier: 4.13.0
     version: 4.13.0(prisma@4.13.0)
   '@reynandaptr/express-prisma-types':
-    specifier: 0.0.1
-    version: 0.0.1(prisma@4.13.0)
+    specifier: 0.0.0
+    version: 0.0.0(prisma@4.13.0)
   body-parser:
     specifier: ^1.20.2
     version: 1.20.2
@@ -1891,8 +1891,8 @@ packages:
     resolution: {integrity: sha512-kEYSUa3XT1Oiu/MbdUkyjfVtAOQmZz69KGKFH/GWoQNLvkscrqy4J4XewEY80BrVuyC3vbV7un4kea0xklWhpA==}
     dev: true
 
-  /@reynandaptr/express-prisma-types@0.0.1(prisma@4.13.0):
-    resolution: {integrity: sha512-Tr1k2Y3Rtb4HdG6PCDkbkYKKqw5o/JdrEDyKf5odhopehB0BQA+aF8UuUF1t92tSRewDDhPkJzJk0yich/y+Hw==, tarball: https://npm.pkg.github.com/download/@reynandaptr/express-prisma-types/0.0.1/d6181d03410fd41729ed49eda26e1eebd917ef5b}
+  /@reynandaptr/express-prisma-types@0.0.0(prisma@4.13.0):
+    resolution: {integrity: sha512-bBRwBVrM/MGDamXnEuo5Hm7Y+q3f7FThH0SkryrC7esDiibPj5LWNRIrdZ4KeCFLVgibu3XFk0pLLum7ZiSWNQ==, tarball: https://npm.pkg.github.com/download/@reynandaptr/express-prisma-types/0.0.0/e07202f623e40dd7828e355d5b8b81dad6c2fb2e}
     requiresBuild: true
     dependencies:
       '@prisma/client': 4.13.0(prisma@4.13.0)
