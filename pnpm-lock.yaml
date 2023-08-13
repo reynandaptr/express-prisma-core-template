@@ -4,12 +4,12 @@ dependencies:
   '@prisma/client':
     specifier: 4.13.0
     version: 4.13.0(prisma@4.13.0)
-  '@reynandaptr/express-prisma-types':
-    specifier: 0.0.0
-    version: 0.0.0(prisma@4.13.0)
   body-parser:
     specifier: ^1.20.2
     version: 1.20.2
+  cookie-parser:
+    specifier: ^1.4.6
+    version: 1.4.6
   cors:
     specifier: ^2.8.5
     version: 2.8.5
@@ -19,6 +19,12 @@ dependencies:
   express:
     specifier: ^4.18.2
     version: 4.18.2
+  express-list-endpoints:
+    specifier: ^6.0.0
+    version: 6.0.0
+  express-rate-limit:
+    specifier: ^6.9.0
+    version: 6.9.0(express@4.18.2)
   http-status:
     specifier: ^1.6.2
     version: 1.6.2
@@ -48,12 +54,18 @@ devDependencies:
   '@types/body-parser':
     specifier: ^1.19.2
     version: 1.19.2
+  '@types/cookie-parser':
+    specifier: ^1.4.3
+    version: 1.4.3
   '@types/cors':
     specifier: ^2.8.13
     version: 2.8.13
   '@types/express':
     specifier: ^4.17.17
     version: 4.17.17
+  '@types/express-list-endpoints':
+    specifier: ^6.0.0
+    version: 6.0.0
   '@types/morgan':
     specifier: ^1.9.4
     version: 1.9.4
@@ -1891,16 +1903,6 @@ packages:
     resolution: {integrity: sha512-kEYSUa3XT1Oiu/MbdUkyjfVtAOQmZz69KGKFH/GWoQNLvkscrqy4J4XewEY80BrVuyC3vbV7un4kea0xklWhpA==}
     dev: true
 
-  /@reynandaptr/express-prisma-types@0.0.0(prisma@4.13.0):
-    resolution: {integrity: sha512-bBRwBVrM/MGDamXnEuo5Hm7Y+q3f7FThH0SkryrC7esDiibPj5LWNRIrdZ4KeCFLVgibu3XFk0pLLum7ZiSWNQ==, tarball: https://npm.pkg.github.com/download/@reynandaptr/express-prisma-types/0.0.0/e07202f623e40dd7828e355d5b8b81dad6c2fb2e}
-    requiresBuild: true
-    dependencies:
-      '@prisma/client': 4.13.0(prisma@4.13.0)
-      zod: 3.21.4
-    transitivePeerDependencies:
-      - prisma
-    dev: false
-
   /@sinclair/typebox@0.25.24:
     resolution: {integrity: sha512-XJfwUVUKDHF5ugKwIcxEgc9k8b7HbznCp6eUfWgu710hMPNIO4aw4/zB5RogDQz8nd6gyCDpU9O/m6qYEWY6yQ==}
     dev: true
@@ -1964,6 +1966,12 @@ packages:
       '@types/node': 18.15.12
     dev: true
 
+  /@types/cookie-parser@1.4.3:
+    resolution: {integrity: sha512-CqSKwFwefj4PzZ5n/iwad/bow2hTCh0FlNAeWLtQM3JA/NX/iYagIpWG2cf1bQKQ2c9gU2log5VUCrn7LDOs0w==}
+    dependencies:
+      '@types/express': 4.17.17
+    dev: true
+
   /@types/cookiejar@2.1.2:
     resolution: {integrity: sha512-t73xJJrvdTjXrn4jLS9VSGRbz0nUY3cl2DMGDU48lKl+HR9dbbjW2A9r3g40VA++mQpy6uuHg33gy7du2BKpog==}
     dev: true
@@ -1984,6 +1992,12 @@ packages:
     resolution: {integrity: sha512-9AonUzyTjXXhEOa0DnqpzZi6VHlqKMswga9EXjpXnnqxwLtdvPPtlO8evrI5D9S6asFRCQ6v+wpiUKbw+vKqyg==}
     dependencies:
       '@types/ms': 0.7.31
+    dev: true
+
+  /@types/express-list-endpoints@6.0.0:
+    resolution: {integrity: sha512-TIi9ggtP1HzV8FmFmwZ/NV3B+qnRw9XslEhG8Qb/50iLDOmq/7radpC8SKXSCvI74FaOrD6I4dF+q+ml5AEYag==}
+    dependencies:
+      '@types/express': 4.17.17
     dev: true
 
   /@types/express-serve-static-core@4.17.33:
@@ -2869,8 +2883,21 @@ packages:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
     dev: true
 
+  /cookie-parser@1.4.6:
+    resolution: {integrity: sha512-z3IzaNjdwUC2olLIB5/ITd0/setiaFMLYiZJle7xg5Fe9KWAceil7xszYfHHBtDFYLSgJduS2Ty0P1uJdPDJeA==}
+    engines: {node: '>= 0.8.0'}
+    dependencies:
+      cookie: 0.4.1
+      cookie-signature: 1.0.6
+    dev: false
+
   /cookie-signature@1.0.6:
     resolution: {integrity: sha512-QADzlaHc8icV8I7vbaJXJwod9HWYp8uCqf1xa4OfNu1T7JVxQIrUgOWtHdNDtPiywmFbiS12VjotIXLrKM3orQ==}
+
+  /cookie@0.4.1:
+    resolution: {integrity: sha512-ZwrFkGJxUR3EIoXtO+yVE69Eb7KlixbaeAWfBQB9vVsNn/o+Yw69gBWSSDK825hQNdN+wF8zELf3dFNl/kxkUA==}
+    engines: {node: '>= 0.6'}
+    dev: false
 
   /cookie@0.5.0:
     resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
@@ -3290,6 +3317,20 @@ packages:
       jest-message-util: 29.5.0
       jest-util: 29.5.0
     dev: true
+
+  /express-list-endpoints@6.0.0:
+    resolution: {integrity: sha512-1I30bSVego+AU/eSsX/bV2xrOXW5tFhsuXZp7wZd9396bAAxH7KHaAwLXQYra0Aw33xA67HmNiceGf2SOvXaLg==}
+    engines: {node: '>=10'}
+    dev: false
+
+  /express-rate-limit@6.9.0(express@4.18.2):
+    resolution: {integrity: sha512-AnISR3V8qy4gpKM62/TzYdoFO9NV84fBx0POXzTryHU/qGUJBWuVGd+JhbvtVmKBv37t8/afmqdnv16xWoQxag==}
+    engines: {node: '>= 14.0.0'}
+    peerDependencies:
+      express: ^4 || ^5
+    dependencies:
+      express: 4.18.2
+    dev: false
 
   /express@4.18.2:
     resolution: {integrity: sha512-5/PsL6iGPdfQ/lKM1UuielYgv3BUoJfz1aUwU9vHZ+J7gyvwdQXFEBIEIaxeGf0GIcreATNyBExtalisDbuMqQ==}

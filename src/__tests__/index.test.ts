@@ -26,4 +26,12 @@ describe('GET /', () => {
           expect(response.status).toBe(httpStatus.OK);
         });
   });
+
+  test('test 404 path', () => {
+    return request(app)
+        .get('/abc')
+        .then((response) => {
+          expect(response.status).toBe(httpStatus.NOT_FOUND);
+        });
+  });
 });
